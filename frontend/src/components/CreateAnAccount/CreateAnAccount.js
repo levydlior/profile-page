@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BirthDate from "../BirthDate/BirthDate";
 
 function CreateAnAccount() {
   const [accountForm, setAccountForm] = useState({
@@ -31,7 +32,8 @@ function CreateAnAccount() {
     setAccountForm({ ...accountForm, gender: e.target.name });
   };
 
-  console.log(birthDate);
+  const formattedDate = `${year}-${month}-${day}`;
+
   return (
     <div>
       <h2>Sign Up</h2>
@@ -73,52 +75,7 @@ function CreateAnAccount() {
           onChange={handleChange}
           placeholder="Enter a profile name."
         />
-        <h2>What's your date of birth?</h2>
-        <div>
-          <label>Month</label>
-          <select
-            value={month}
-            placeholder="Month"
-            onChange={(e) => {
-              setBirthDate({ ...birthDate, month: e.target.value });
-            }}
-          >
-            <option disabled>Month</option>
-            <option value="January">January</option>
-            <option>February</option>
-            <option>March</option>
-            <option>April</option>
-            <option>May</option>
-            <option>Jun</option>
-            <option>July</option>
-            <option>August</option>
-            <option>September</option>
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
-          </select>
-
-          <label>Day</label>
-          <input
-            type="text"
-            value={day}
-            placeholder="DD"
-            maxLength="2"
-            onChange={(e) =>
-              setBirthDate({ ...birthDate, day: e.target.value })
-            }
-          />
-          <label>Year</label>
-          <input
-            type="text"
-            value={year}
-            placeholder="YYYY"
-            maxLength="4"
-            onChange={(e) =>
-              setBirthDate({ ...birthDate, year: e.target.value })
-            }
-          />
-        </div>
+        <BirthDate birthDate={birthDate} setBirthDate={setBirthDate} />
         <h2>What's your gender?</h2>
         <input
           type="radio"
