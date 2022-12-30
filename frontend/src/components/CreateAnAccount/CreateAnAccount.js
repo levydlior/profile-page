@@ -32,7 +32,6 @@ function CreateAnAccount() {
     setAccountForm({ ...accountForm, gender: e.target.name });
   };
 
-  const formattedDate = `${year}-${month}-${day}`;
 
   return (
     <div>
