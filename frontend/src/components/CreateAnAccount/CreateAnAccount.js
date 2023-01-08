@@ -9,6 +9,7 @@ function CreateAnAccount() {
     date_of_birth: "",
     gender: "",
   });
+  
   const [confirmInputs, setConfirmInputs] = useState({
     email: "",
   });
@@ -19,6 +20,8 @@ function CreateAnAccount() {
     year: "",
   });
   const { month, day, year } = birthDate;
+
+  const formattedBirthDate = `${year}-${day}-${month}`
 
   const { username, password, email, gender } = accountForm;
 
@@ -31,7 +34,6 @@ function CreateAnAccount() {
   const handleGenderClick = (e) => {
     setAccountForm({ ...accountForm, gender: e.target.name });
   };
-
 
   return (
     <div>

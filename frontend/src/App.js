@@ -2,6 +2,7 @@ import "./App.css";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreateAnAccount from "./components/CreateAnAccount/CreateAnAccount";
+import CreateAccountTry from "./components/CreateAnAccount/CreateAccountTry";
 
 function App() {
   const [authorized, setAuthorized] = useState(false);
@@ -33,7 +34,8 @@ function App() {
       ) : (
         <Switch>
           <Route exact path= "/create_account" >
-            <CreateAnAccount />
+            {/* <CreateAnAccount /> */}
+            <CreateAccountTry />
           </Route>
           <Route exact path="*">
             <h1>Error 404 Not Found</h1>
