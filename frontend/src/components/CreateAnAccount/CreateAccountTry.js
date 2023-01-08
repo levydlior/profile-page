@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik } from "formik";
+import { useFormik, Field } from "formik";
 import { basicSchema } from "../../schemas";
 
 function CreateAccountTry() {
@@ -8,7 +8,6 @@ function CreateAccountTry() {
       username: "",
       password: "",
       email: "",
-      date_of_birth: "",
       year: "",
       month: "",
       day: "",
@@ -16,7 +15,7 @@ function CreateAccountTry() {
     },
     validationSchema: basicSchema,
   });
-  console.log(formik.errors);
+  console.log(formik.month);
   return (
     <div>
       <form>
@@ -49,12 +48,33 @@ function CreateAccountTry() {
           type="email"
           onBlur={formik.handleBlur}
         />
-        <label htmlFor="date_of_birth"> Date of Birth </label>
+        <label htmlFor="month"> month</label>
+        <select 
+        value={formik.values.month} 
+        type="select" 
+        onChange={formik.handleChange}
+        name="month"
+        id="month"
+        >
+          <option value="1" label="January" />
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+        <label htmlFor="day"> Day </label>
         <input
-          value={formik.values.date_of_birth}
+          value={formik.values.day}
           onChange={formik.handleChange}
-          name="date_of_birth"
-          id="date_of_birth"
+          name="day"
+          id="day"
           type="date"
           onBlur={formik.handleBlur}
         />
